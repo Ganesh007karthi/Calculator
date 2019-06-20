@@ -61,8 +61,10 @@ public class MainActivity extends AppCompatActivity {
 
 
                 String result = String.valueOf(e.calculate());
+                double r=Double.parseDouble(result);
 
-                Result.setText(result);
+
+                Result.setText(fmt(r));
             }
         });
 
@@ -197,6 +199,13 @@ public class MainActivity extends AppCompatActivity {
     void clearScreen(){
         edtExpression.setText("");
         Result.setText("0");
+    }
+    public String fmt(double d){
+        if(d==Math.floor(d)){
+            return String.format("%.0f",d);
+        }else{
+            return Double.toString(d);
+        }
     }
 
 }
